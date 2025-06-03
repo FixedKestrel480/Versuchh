@@ -72,3 +72,18 @@ void Student::ausgabe() const
               << geburtstag << ", wohnhaft in " << adresse
               << std::endl;
 }
+
+//compare if two students have the same MatNr
+bool Student::operator==(const Student&other)const{
+	return this->matNr == other.matNr;
+}
+
+//compare if one has a less matNr that the other
+bool Student::operator<(const Student& other)const{
+	return this->matNr <other.matNr;
+}
+
+// has a greater MatNr??
+bool Student::operator>(const Student& other) const {
+    return this->matNr > other.matNr;
+}
