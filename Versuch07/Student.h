@@ -21,11 +21,13 @@ public:
     bool operator<(const Student& other)const;
     bool operator>(const Student& other)const;
 
+
 private:
     unsigned int matNr;
     std::string name;
     std::string geburtstag;
     std::string adresse;
 };
+std::ostream& operator<<(std::ostream& os, const Student& student);
 
 #endif

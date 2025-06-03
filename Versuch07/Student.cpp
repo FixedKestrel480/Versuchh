@@ -68,9 +68,10 @@ std::string Student::getAdresse() const
  */
 void Student::ausgabe() const
 {
-    std::cout << name << ", MatNr. " << matNr << ", geb. am "
+	std::cout<<*this<<std::endl;
+    /*std::cout << name << ", MatNr. " << matNr << ", geb. am "
               << geburtstag << ", wohnhaft in " << adresse
-              << std::endl;
+              << std::endl;*/
 }
 
 //compare if two students have the same MatNr
@@ -86,4 +87,13 @@ bool Student::operator<(const Student& other)const{
 // has a greater MatNr??
 bool Student::operator>(const Student& other) const {
     return this->matNr > other.matNr;
+}
+
+std::ostream& operator<<(std::ostream& os, const Student& student)
+{
+    os << student.getName()
+       << ", MatNr. " << student.getMatNr()
+       << ", geb. am " << student.getGeburtstag()
+       << ", wohnhaft in " << student.getAdresse();
+    return os;
 }
