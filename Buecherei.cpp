@@ -19,7 +19,7 @@
  
 //esto se llama compilacion condicional
 //se puede elegir si el compilador usa solo la clase medium o las clases que se programarán después
-#define UNTERKLASSENVORHANDEN false
+#define UNTERKLASSENVORHANDEN true
 
 #include <iostream>
 #include <string>
