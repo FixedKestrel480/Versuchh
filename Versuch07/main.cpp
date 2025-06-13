@@ -15,6 +15,7 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::sort;
 ////
 
 int main()
@@ -53,6 +54,7 @@ int main()
 				  << "(7): Datenelement vorne loeschen: "<<std::endl
 				  << "(8): Daten aus Datei einlesen: "<<std::endl
 				  << "(9): Daten in eine Datei sichern: "<<std::endl
+				  << "(s): Liste sortieren: "<<endl
                   << "(0): Beenden" << std::endl;
         std::cin >> abfrage;
         std::cin.ignore(10, '\n');
@@ -238,6 +240,22 @@ int main()
             	outFile.close();
             	cout<<"Erfolgreich";
             	break;
+            }
+            case 's':
+            {
+            	if(!studentenListe.empty()){
+            		sort(studentenListe.begin(),studentenListe.end());
+            		cout<<"Liste wurde sortiert "<<endl;
+            		  for (const auto& other : studentenListe)
+            		        {
+            		            other.ausgabe();
+            		        }
+
+            	}    else
+                {
+                    std::cout << "Liste ist leer!\n";
+                }
+                break;
             }
             case '0':
                 std::cout << "Das Programm wird nun beendet";
