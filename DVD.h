@@ -16,6 +16,8 @@ public:
 	DVD(string initTitel, int initAltersfreigabe, string initGenre);
 	virtual ~DVD();
 	virtual void ausgabe() const override;
+	virtual bool ausleihen(Person person, Datum ausleihdatum) override;
+
 
 private:
 	int altersfreigabe;

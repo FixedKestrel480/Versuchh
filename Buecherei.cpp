@@ -174,7 +174,7 @@ void fuelleDatenbank(std::vector<Medium*>& medien)
         neuesMedium = new Buch("Tom Sawyer", "Mark Twain");
         medien.push_back(neuesMedium);
 
-        neuesMedium = new Magazin("Chip", Datum(1, 12, 2022), "Computer");
+        neuesMedium = new Magazin("Chip", Datum(18, 06, 2025), "Computer");
         medien.push_back(neuesMedium);
 
         neuesMedium = new DVD("Fluch der Karibik", 12, "Actionkom�die");

@@ -18,6 +18,7 @@ public:
 	Magazin(string initTitel, Datum initDatumAusgabe, string initSparte);
 	virtual ~Magazin();
 	virtual void ausgabe() const override;
+	virtual bool ausleihen(Person person, Datum ausleihdatum) override;
 
 private:
 	Datum erscheinungsdatum;
