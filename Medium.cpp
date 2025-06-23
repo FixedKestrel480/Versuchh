@@ -23,6 +23,9 @@ Medium::~Medium(void)
 {
 }
 
+bool Medium::istVerliehen() const {
+    return status;
+}
 
 void Medium::ausgabe() const
 {
@@ -61,7 +64,7 @@ void Medium::zurueckgeben()
     if (status)
     {
         status = false;
-        std::cout << "Das Medium \"" << titel << "\" wurde zurückgegeben." << std::endl;
+        std::cout << "Das Medium \"" << titel << "\" wurde zurï¿½ckgegeben." << std::endl;
     }
     else
     {
@@ -72,4 +75,9 @@ void Medium::zurueckgeben()
 unsigned int Medium::getID()
 {
     return ID;
+}
+
+std::ostream& operator<<(std::ostream& os, const Medium& medium) {
+    medium.ausgabe(); // esto ya imprime todo a cout
+    return os;
 }

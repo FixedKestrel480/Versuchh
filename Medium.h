@@ -33,12 +33,14 @@ public:
      */
     virtual ~Medium(void);
 
+    bool istVerliehen()const;
+
     /*!
      * @brief Ausgabefunktion
      *
      * Funktion gibt alle Informationen eines Mediums auf der Konsole aus
-     */
-    virtual void ausgabe() const;
+     *///making medium abstract class
+    virtual void ausgabe() const =0; //makling ausgabe pure virtual
 
     /*!
      * @brief Ausleihen-Funktion
@@ -95,4 +97,5 @@ protected:
     Person personAusgeliehen;
 
 };
+std::ostream& operator<<(std::ostream& os, const Medium& medium);
 #endif

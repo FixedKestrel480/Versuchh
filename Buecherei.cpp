@@ -43,6 +43,8 @@ void mediumEntfernen(std::vector<Medium*>& medien);
 void mediumAusleihen(std::vector<Medium*>& medien, Datum aktuellesDatum);
 void mediumZurueckgeben(std::vector<Medium*>& medien);
 void alleMedienAusgeben(std::vector<Medium*>& medien);
+void ausgelieheneMedienAusgeben(const std::vector<Medium*>& medien);
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,6 +62,7 @@ int main()
     // aktuelles Datum
     Datum aktuellesDatum;
     std::cout << "Aktuelles Datum: " << aktuellesDatum << std::endl;
+    //Medium* test = new Medium(); you cannot do that because Medium is an abstract class
 
     // Pr�fen, ob Unterklassen schon programmiert wurden (siehe bedingtes Kompilieren)
     // entsprechend wird die Datenbank mit unterschiedlichen Medien gef�llt
@@ -76,6 +79,7 @@ int main()
                   << "(3): Datenbank ausgeben" << std::endl
                   << "(4): Ein Medium verleihen" << std::endl
                   << "(5): Ein Medium zur�cknehmen" << std::endl
+				  << "(6): Ausgeliehene Medien anzeigen"<<std::endl
                   << "(7): Beenden" << std::endl;
 
         // Einlesen der Abfrage
@@ -128,6 +132,12 @@ int main()
             {
                 mediumZurueckgeben(medien);
                 break;
+            }
+
+            case '6':
+            {
+            	ausgelieheneMedienAusgeben(medien);
+            	break;
             }
 
             case '7':
@@ -418,5 +428,18 @@ void alleMedienAusgeben(std::vector<Medium*>& medien)
     {
         std::cout << "*************************************************************" << std::endl;
         medien[index]->ausgabe();
+    }
+}
+
+void ausgelieheneMedienAusgeben(const std::vector<Medium*>& datenbank) {
+    bool gefunden = false;
+    for (const auto& medium : datenbank) {
+        if (medium->istVerliehen()) {
+            std::cout << *medium;
+            gefunden = true;
+        }
+    }
+    if (!gefunden) {
+        std::cout << "Es sind derzeit keine Medien ausgeliehen." << std::endl;
     }
 }
