@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsScene>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +21,14 @@ public:
 private slots:
     void on_pushButton_addStadt_clicked();
 
+    void on_actionExit_triggered();
+
+    void on_actionClear_Scene_triggered();
+
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QGraphicsScene* scene;
 };
 #endif // MAINWINDOW_H
